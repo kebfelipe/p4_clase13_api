@@ -10,8 +10,8 @@ services:
     env_file:
       - .env
     networks:
-      - mysql_network
+      - mysql_mysql_network
 
 networks:
-  mysql_network:
-    driver: bridge
+  mysql_mysql_network:
+    external: true

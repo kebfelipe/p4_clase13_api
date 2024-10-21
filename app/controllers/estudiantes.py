@@ -34,3 +34,7 @@ def modificar_estudiante(id, data):
         return jsonify({"message": "Estudiante modificado"}), 200
     else:
         return jsonify({"message": "Faltan datos"}), 400
+    
+def eliminar_estudiante(id):
+    execute_sp('sp_eliminar_estudiante', (id,))
+    return jsonify({"message": "Estudiante eliminado"}), 200

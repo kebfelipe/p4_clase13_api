@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from controllers.estudiantes import obtener_estudiantes, obtener_estudiante, insertar_estudiante, modificar_estudiante
+from controllers.estudiantes import obtener_estudiantes, obtener_estudiante, insertar_estudiante, modificar_estudiante, eliminar_estudiante
 
 alumno_routes  = Blueprint('alumnos', __name__)
 
@@ -20,3 +20,7 @@ def insertar_alumnos():
 def modificar_alumnos(id):
     data = request.get_json()
     return modificar_estudiante(id, data)
+
+@alumno_routes.route('/<id>', methods=['DELETE'])
+def eliminar_alumnos(id):
+    return eliminar_estudiante(id)
